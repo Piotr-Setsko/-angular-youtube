@@ -9,7 +9,7 @@ export class SearchSettingComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  public ngOnInit(): void {
   }
 
 }
