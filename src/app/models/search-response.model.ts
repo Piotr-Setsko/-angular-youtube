@@ -1,9 +1,11 @@
-interface PageInfo {
-  totalResults: number;
-  resultsPerPage: number;
-}
+import { SearchItem } from './search-item.model';
 
-export interface SearchResponse extends PageInfo {
+export interface SearchResponse {
   kind: string;
   etag: string;
+  pageInfo: {
+    totalResults: number;
+    resultsPerPage: number;
+  };
+  items: SearchItem;
 }

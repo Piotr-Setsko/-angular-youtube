@@ -7,7 +7,15 @@ import {
   platformBrowserDynamicTesting
 } from '@angular/platform-browser-dynamic/testing';
 
-declare const require: NodeRequire;
+interface RequireContext {
+  keys(): string[];
+  (id: string): {};
+}
+interface RequireFunction {
+  context: (path: string, deep?: boolean, filter?: RegExp) => RequireContext;
+}
+
+declare const require: RequireFunction;
 
 // First, initialize the Angular testing environment.
 getTestBed().initTestEnvironment(
@@ -15,6 +23,6 @@ getTestBed().initTestEnvironment(
   platformBrowserDynamicTesting()
 );
 // Then we find all the tests.
-const context: __WebpackModuleApi.RequireContext = require.context('./', true, /\.spec\.ts$/);
+const context: RequireContext = require.context('./', true, /\.spec\.ts$/);
 // And load the modules.
 context.keys().map(context);
