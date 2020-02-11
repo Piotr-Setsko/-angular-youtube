@@ -34,7 +34,7 @@ describe('AppComponent', () => {
     const fixture: ComponentFixture<AppComponent> = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled: HTMLImageElement = fixture.debugElement.nativeElement;
-    expect((compiled.querySelector('.content span') as HTMLImageElement).textContent)
+    expect((compiled.querySelector('h1') as HTMLImageElement).textContent)
       .toContain('youtube-client app is running!');
   });
 });
