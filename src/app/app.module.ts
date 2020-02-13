@@ -7,8 +7,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
 import { SearchItemComponent } from './components/search-item/search-item.component';
-import { SearchFormComponent } from './components/search-form/search-form.component';
-import { SearchSettingComponent } from './components/search-setting/search-setting.component';
+import { SearchSortingComponent } from './components/search-sorting/search-sorting.component';
 import { UserLoginComponent } from './components/user-login/user-login.component';
 
 @NgModule({
@@ -17,8 +16,7 @@ import { UserLoginComponent } from './components/user-login/user-login.component
     HeaderComponent,
     SearchResultsComponent,
     SearchItemComponent,
-    SearchFormComponent,
-    SearchSettingComponent,
+    SearchSortingComponent,
     UserLoginComponent
   ],
   imports: [
