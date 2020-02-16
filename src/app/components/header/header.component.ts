@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -8,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 
 export class HeaderComponent implements OnInit {
 
+  public isShow: boolean = true;
+  @Output() public clickChange: EventEmitter<boolean> = new EventEmitter();
+
   constructor() { }
 
   public ngOnInit(): void {
   }
 
+  public toggleDisplay(): void {
+    this.isShow = !this.isShow;
+    this.clickChange.emit(this.isShow);
+  }
 }
