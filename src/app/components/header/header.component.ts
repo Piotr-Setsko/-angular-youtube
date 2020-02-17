@@ -8,7 +8,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 export class HeaderComponent implements OnInit {
 
-  public isShow: boolean = true;
+  public isShow: boolean = false;
   @Output() public clickChange: EventEmitter<boolean> = new EventEmitter();
 
   constructor() { }

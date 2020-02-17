@@ -31,6 +31,7 @@ export interface SearchItem {
       description: string;
     }
     defaultAudioLanguage: string;
+    defaultLanguage?: string;
   };
   statistics: {
     viewCount: string;

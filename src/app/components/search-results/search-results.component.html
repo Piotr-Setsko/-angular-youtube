@@ -1,4 +1,6 @@
-<p>
-  search-results works!
-</p>
-<app-search-item></app-search-item>
+<app-search-item class="search__item" *ngFor="let item of items">
+  <mat-card>
+    <mat-card-title>{{item.snippet.title}}</mat-card-title>
+    <img mat-card-image [src]="item.snippet.thumbnails.default.url" alt="">
+  </mat-card>
+</app-search-item>
