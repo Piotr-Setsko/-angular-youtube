@@ -1,6 +1,9 @@
 <app-search-item class="search__item" *ngFor="let item of items">
   <mat-card>
+    <img mat-card-image [src]="item.snippet.thumbnails.high.url" alt="">
+    <mat-icon svgIcon="viewed" aria-hidden="false"></mat-icon>
+    <mat-card-subtitle>{{item.statistics.viewCount}}</mat-card-subtitle>
+    <mat-icon svgIcon="liked" aria-hidden="false"></mat-icon>
     <mat-card-title>{{item.snippet.title}}</mat-card-title>
-    <img mat-card-image [src]="item.snippet.thumbnails.default.url" alt="">
   </mat-card>
 </app-search-item>
