@@ -8,4 +8,10 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
   public title: string = 'youtube-client';
+
+  public show: boolean = false;
+
+  public onClicked(show: boolean): void {
+    this.show = show;
+  }
 }

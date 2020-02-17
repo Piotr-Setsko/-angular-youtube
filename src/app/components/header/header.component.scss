@@ -1,0 +1,53 @@
+
+:host {
+  display: block;
+  background-color: #E5E5E5;
+}
+
+.header__wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.header__main {
+  margin: 0 20%;
+  display: flex;
+  align-items: center;
+}
+
+
+.mat-form-field {
+  width: 500px;
+}
+
+#search {
+  background-color: #EFEFEF;
+  padding: 8px 0px;
+  margin-bottom: -8px;
+}
+
+.input__btn {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  box-shadow: 2px 0px 4px #673ab7;
+
+}
+
+.header__btn {
+  padding: 0;
+  box-shadow: 2px 0px 4px #673ab7;
+  min-width: 35px;
+
+
+  img {
+    width: 25px;
+    height: auto;
+  }
+}
+
+.header__user-login {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
