@@ -1,3 +1,10 @@
-<ng-content></ng-content>
+<mat-card>
+  <img mat-card-image [src]="itemCard.snippet.thumbnails.high.url" alt="">
+    <mat-icon svgIcon="viewed" aria-hidden="false"></mat-icon>
+    <mat-card-subtitle>{{itemCard.statistics.viewCount}}</mat-card-subtitle>
+    <mat-icon svgIcon="liked" aria-hidden="false"></mat-icon>
+    <mat-card-title>{{itemCard.snippet.title}}</mat-card-title>
+    <mat-card-footer ></mat-card-footer>
+  </mat-card>
 
 
