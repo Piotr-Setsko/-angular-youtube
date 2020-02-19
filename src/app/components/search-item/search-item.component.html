@@ -1,10 +1,10 @@
-<mat-card>
+<mat-card [ngClass]="{blueClass: (publicDate < 7), greenClass: (publicDate > 7) && (publicDate < 30), yellowClass: (publicDate > 30) && (publicDate < 180), redClass: publicDate > 180}">
   <img mat-card-image [src]="itemCard.snippet.thumbnails.high.url" alt="">
-    <mat-icon svgIcon="viewed" aria-hidden="false"></mat-icon>
-    <mat-card-subtitle>{{itemCard.statistics.viewCount}}</mat-card-subtitle>
-    <mat-icon svgIcon="liked" aria-hidden="false"></mat-icon>
-    <mat-card-title>{{itemCard.snippet.title}}</mat-card-title>
-    <mat-card-footer ></mat-card-footer>
-  </mat-card>
+  <mat-icon svgIcon="viewed" aria-hidden="false"></mat-icon>
+  <mat-card-subtitle>{{itemCard.statistics.viewCount}}</mat-card-subtitle>
+  <mat-icon svgIcon="liked" aria-hidden="false"></mat-icon>
+  <mat-card-title>{{itemCard.snippet.title}}</mat-card-title>
+  <mat-card-subtitle>{{itemCard.snippet.publishedAt | date: 'longDate'}}</mat-card-subtitle>
+</mat-card>
 
 

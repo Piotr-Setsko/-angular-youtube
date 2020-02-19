@@ -16,11 +16,10 @@ export class SearchItemComponent implements OnInit {
   @Input() itemCard: SearchItem;
   @Input()
   set publicDate(publicDate: number) {
-    this._publicDate = new Date(publicDate).getTime();
+    this._publicDate = (+new Date() - new Date(publicDate).getTime())/(1000*60*60*24);
   }
   get publicDate(): number {return this._publicDate};
 
-  public today: number = +new Date();
 
   constructor (private iconRegistry: MatIconRegistry, private sanitizer: DomSanitizer) {
     this.iconRegistry.addSvgIcon(

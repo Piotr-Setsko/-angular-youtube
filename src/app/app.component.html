@@ -1,8 +1,8 @@
 <div class="container">
   <h1>{{ title }} app is running!</h1>
 </div>
-<app-header (clickChange)="onClicked($event)"></app-header>
+<app-header (clickChange)="onClicked($event)" (ckickSubmit)="onClickedResp($event)"></app-header>
 <app-search-sorting [isShow]="show"></app-search-sorting>
-<app-search-results></app-search-results>
+<app-search-results [items]="itemsResp"></app-search-results>
 
 <router-outlet></router-outlet>

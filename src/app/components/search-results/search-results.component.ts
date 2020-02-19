@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
-import { response } from '../../response';
+import { Component, OnInit, Input } from '@angular/core';
+import { SearchItem } from '../../models/search-item.model';
 
 @Component({
   selector: 'app-search-results',
@@ -10,7 +9,8 @@ import { response } from '../../response';
 
 export class SearchResultsComponent implements OnInit {
 
-  public items = response.items;
+  @Input() public items: SearchItem;
+  @Input() public isShow: boolean;
 
   constructor() {
   }

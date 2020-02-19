@@ -1,4 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { NgForm } from '@angular/forms';
+
+import { response } from '../../response';
+import { SearchItem } from '../../models/search-item.model';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +13,12 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   public isShow: boolean = false;
+  public items: SearchItem[] = response.items;
+
   @Output() public clickChange: EventEmitter<boolean> = new EventEmitter();
+  @Output() public clickSubmit: EventEmitter<SearchItem[]> = new EventEmitter();
+
+  public search: string;
 
   constructor() { }
 
@@ -19,5 +28,9 @@ export class HeaderComponent implements OnInit {
   public toggleDisplay(): void {
     this.isShow = !this.isShow;
     this.clickChange.emit(this.isShow);
+  }
+
+  public submit(): void {
+    this.clickSubmit.emit(this.items);
   }
 }
