@@ -751,4 +751,4 @@ export const response: SearchResponse = {
       }
     }
   ]
-}
+};

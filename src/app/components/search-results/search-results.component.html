@@ -1,2 +1,3 @@
-  <app-search-item class="search__item" *ngFor="let item of items" [itemCard]="item" [publicDate]="item.snippet.publishedAt"></app-search-item>
+
+  <app-search-item class="search__item" *ngFor="let item of items | orderBy: 'statistics.likeCount'" [itemCard]="item" [publicDate]="item.snippet.publishedAt"></app-search-item>
 

@@ -13,13 +13,14 @@ export class SearchItemComponent implements OnInit {
 
   private _publicDate: number;
 
-  @Input() itemCard: SearchItem;
+  @Input() public itemCard: SearchItem;
   @Input()
   set publicDate(publicDate: number) {
-    this._publicDate = (+new Date() - new Date(publicDate).getTime())/(1000*60*60*24);
+    this._publicDate = (+new Date() - new Date(publicDate).getTime()) / (1000 * 60 * 60 * 24);
   }
-  get publicDate(): number {return this._publicDate};
-
+  get publicDate(): number {
+    return this._publicDate;
+  }
 
   constructor (private iconRegistry: MatIconRegistry, private sanitizer: DomSanitizer) {
     this.iconRegistry.addSvgIcon(

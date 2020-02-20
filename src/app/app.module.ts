@@ -19,7 +19,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule } from '@angular/common/http';
+
+import { SortingDataPipe } from './pipes/sorting-data.pipe';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { HttpClientModule } from "@angular/common/http";
     SearchResultsComponent,
     SearchItemComponent,
     SearchSortingComponent,
-    UserLoginComponent
+    UserLoginComponent,
+    SortingDataPipe
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,7 @@ import { HttpClientModule } from "@angular/common/http";
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [SortingDataPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

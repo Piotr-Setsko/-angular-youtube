@@ -13,17 +13,17 @@ export class AppComponent {
   public title: string = 'youtube-client';
 
   public show: boolean = false;
-  public itemsResp: SearchItem[];
+  public itemsResp: SearchItem[] = response.items;
 
   constructor() {
   }
 
   public onClicked(show: boolean): void {
     this.show = show;
-    console.log(this.show)
+    console.log(this.show);
   }
 
-  public onClickedResp(event): void {
+  public onClickedResp(event: SearchItem[]): void {
     this.itemsResp = event;
   }
 }

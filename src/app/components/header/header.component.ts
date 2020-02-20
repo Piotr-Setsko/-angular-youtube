@@ -34,6 +34,5 @@ export class HeaderComponent implements OnInit {
     if (myform.value.search !== undefined) {
       this.clickSubmit.emit(this.items);
     }
-    console.log(myform);
   }
 }
