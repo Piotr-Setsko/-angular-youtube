@@ -14,16 +14,24 @@ export class AppComponent {
 
   public show: boolean = false;
   public itemsResp: SearchItem[] = response.items;
+  public arr: [string, string, boolean] = ['', '', false];
 
   constructor() {
   }
 
   public onClicked(show: boolean): void {
     this.show = show;
-    console.log(this.show);
   }
 
   public onClickedResp(event: SearchItem[]): void {
     this.itemsResp = event;
+  }
+
+  public onClickedDate(event: [string, string, boolean]): void {
+    this.arr = event;
+  }
+
+  public onClickedViews(event: [string, string, boolean]): void{
+    this.arr = event;
   }
 }

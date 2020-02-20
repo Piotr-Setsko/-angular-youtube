@@ -11,13 +11,9 @@ import { SortingDataPipe } from '../../pipes/sorting-data.pipe';
 export class SearchResultsComponent implements OnInit {
 
   @Input() public items: SearchItem[];
-  public order: string = 'statistics.likeCount';
+  @Input() public sort: [string, string, boolean];
 
     public ngOnInit(): void {
   }
 
-  public sortDate(): void {
-    this.order = 'statistics.viewCount';
-    console.log(this.order);
-  }
 }

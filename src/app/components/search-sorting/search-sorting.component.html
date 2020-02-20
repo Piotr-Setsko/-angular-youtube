@@ -1,7 +1,7 @@
 <div class="sort__wrapper" *ngIf="isShow">
   <p>Sorting by:</p>
-  <a mat-button color="primary" class="sort__btn">date</a>
-  <a mat-button color="primary" class="sort__btn">count of views</a>
+  <a mat-button color="primary" class="sort__btn" (click)="sortDate()">date</a>
+  <a mat-button color="primary" class="sort__btn" (click)="sortViews()">count of views</a>
   <mat-form-field class="input__wrapper">
     <mat-label>by word or sentance</mat-label>
     <input matInput type="text" name="sort">
