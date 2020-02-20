@@ -30,7 +30,10 @@ export class HeaderComponent implements OnInit {
     this.clickChange.emit(this.isShow);
   }
 
-  public submit(): void {
-    this.clickSubmit.emit(this.items);
+  public add(myform: NgForm): void {
+    if (myform.value.search !== undefined) {
+      this.clickSubmit.emit(this.items);
+    }
+    console.log(myform);
   }
 }

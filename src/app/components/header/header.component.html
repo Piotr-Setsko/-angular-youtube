@@ -6,7 +6,7 @@
         <mat-label></mat-label>
         <input matInput type="text" name="search" id="search" placeholder="What are you want to find out?" [(ngModel)]="search">
       </mat-form-field>
-      <button mat-flat-button class="input__btn" color="primary" type="submit" (click)="submit()">search</button>
+      <button mat-flat-button type="submit" class="input__btn" color="primary" (click)="add(myForm)">search</button>
     </form>
     <button (click)="toggleDisplay()" mat-flat-button color="primary" class="header__btn header__btn--sort"><img src="../../../assets/sort.svg" alt="sort"></button>
   </div>

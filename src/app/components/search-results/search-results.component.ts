@@ -9,8 +9,7 @@ import { SearchItem } from '../../models/search-item.model';
 
 export class SearchResultsComponent implements OnInit {
 
-  @Input() public items: SearchItem;
-  @Input() public isShow: boolean;
+  @Input() public items: SearchItem[];
 
   constructor() {
   }

@@ -15,11 +15,15 @@ export class AppComponent {
   public show: boolean = false;
   public itemsResp: SearchItem[];
 
-  public onClicked(show: boolean): void {
-    this.show = show;
+  constructor() {
   }
 
-  public onClickedResp(items: SearchItem[]): void {
-    this.itemsResp = items;
+  public onClicked(show: boolean): void {
+    this.show = show;
+    console.log(this.show)
+  }
+
+  public onClickedResp(event): void {
+    this.itemsResp = event;
   }
 }
