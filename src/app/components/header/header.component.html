@@ -1,6 +1,6 @@
 <div class="header__wrapper">
   <div class="header__main">
-    <img src="../../../assets/logo.svg" alt="Logo">
+    <img class="header__img" src="../../../assets/logo.svg" alt="Logo">
     <form #myForm="ngForm">
       <mat-form-field class="input__wrapper">
         <mat-label></mat-label>
@@ -11,7 +11,7 @@
     <button (click)="toggleDisplay()" mat-flat-button color="primary" class="header__btn header__btn--sort"><img src="../../../assets/sort.svg" alt="sort"></button>
   </div>
   <div class="header__user-login">
-    <p>Your Name</p>
+    <p class="header__user-name">Your Name</p>
     <button mat-flat-button color="primary" class="header__btn header__btn--user"><img src="../../../assets/login.svg" alt="user login"></button>
   </div>
 </div>

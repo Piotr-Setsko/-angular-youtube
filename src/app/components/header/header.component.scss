@@ -2,9 +2,16 @@
 :host {
   display: block;
   background-color: #E5E5E5;
+  width: 100%;
+}
+
+.header__img {
+  margin-right: 20px;
 }
 
 .header__wrapper {
+  margin: 0 auto;
+  width: 95%;
   display: flex;
   justify-content: flex-end;
 }
@@ -13,17 +20,29 @@
   margin: 0 20%;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 
+form {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin-right: 15px;
+}
 
 .mat-form-field {
-  width: 500px;
+  min-width: 400px;
 }
 
 #search {
   background-color: #EFEFEF;
   padding: 8px 0px;
   margin-bottom: -8px;
+  padding-left: 15px;
+}
+
+#search::placeholder {
+  padding-left: 5px;
 }
 
 .input__btn {
@@ -51,3 +70,6 @@
   align-items: center;
 }
 
+.header__user-name {
+  margin-right: 15px;
+}

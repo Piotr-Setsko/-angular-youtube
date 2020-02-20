@@ -24,11 +24,17 @@ export class SearchItemComponent implements OnInit {
 
   constructor (private iconRegistry: MatIconRegistry, private sanitizer: DomSanitizer) {
     this.iconRegistry.addSvgIcon(
-        'viewed',
-        this.sanitizer.bypassSecurityTrustResourceUrl('../../assets/viewed.svg'));
+      'viewed',
+      this.sanitizer.bypassSecurityTrustResourceUrl('../../assets/viewed.svg'));
     this.iconRegistry.addSvgIcon(
-        'liked',
-        this.sanitizer.bypassSecurityTrustResourceUrl('../../assets/liked.svg'));
+      'liked',
+      this.sanitizer.bypassSecurityTrustResourceUrl('../../assets/liked.svg'));
+    this.iconRegistry.addSvgIcon(
+      'dislike',
+      this.sanitizer.bypassSecurityTrustResourceUrl('../../assets/dislike.svg'));
+    this.iconRegistry.addSvgIcon(
+      'comments',
+      this.sanitizer.bypassSecurityTrustResourceUrl('../../assets/comments.svg'));
   }
 
   public ngOnInit(): void {

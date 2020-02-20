@@ -14,18 +14,18 @@ export class SearchSortingComponent implements OnInit {
   @Output() public dateSorting: EventEmitter<[string, string, boolean]> = new EventEmitter();
   @Output() public viewsSorting: EventEmitter<[string, string, boolean]> = new EventEmitter();
 
-  public sortDate() {
+  constructor() { }
+
+  public sortDate(): void {
     this.reverse = !this.reverse;
     this.order = ['snippet', 'publishedAt', this.reverse];
     this.dateSorting.emit(this.order);
   }
-  public sortViews() {
+  public sortViews(): void {
     this.reverse = !this.reverse;
     this.order = ['statistics', 'viewCount', this.reverse];
     this.viewsSorting.emit(this.order);
   }
-
-  constructor() { }
 
   public ngOnInit(): void {
   }

@@ -6,12 +6,14 @@ import { SearchItem } from '../models/search-item.model';
 })
 export class SortingDataPipe implements PipeTransform {
 
-  public transform(items: SearchItem[], field1: string, field2: string, reverse: boolean = false): SearchItem[] {
+  public transform(items: SearchItem[], field1: string, field2: string, reverse: boolean = false):
+    SearchItem[] {
     if (!items) { return []; }
 
     if (field1 && field2) {
       items.sort((a, b) => {
-        let x, y;
+        let x: number | Date;
+        let y: number | Date;
         if (!isNaN(+a[field1][field2])) {
           x = +a[field1][field2];
           y = +b[field1][field2];
@@ -26,12 +28,11 @@ export class SortingDataPipe implements PipeTransform {
         } else {
           return 0;
         }
-        })
-      }
+      });
+    }
 
     if (reverse) { items.reverse(); }
 
-    console.log(items);
     return items;
   }
 

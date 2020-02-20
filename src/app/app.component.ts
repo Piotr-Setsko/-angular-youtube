@@ -10,10 +10,9 @@ import { SearchItem } from './models/search-item.model';
 })
 
 export class AppComponent {
-  public title: string = 'youtube-client';
 
   public show: boolean = false;
-  public itemsResp: SearchItem[] = response.items;
+  public itemsResp: SearchItem[] = [];
   public arr: [string, string, boolean] = ['', '', false];
 
   constructor() {
@@ -31,7 +30,7 @@ export class AppComponent {
     this.arr = event;
   }
 
-  public onClickedViews(event: [string, string, boolean]): void{
+  public onClickedViews(event: [string, string, boolean]): void {
     this.arr = event;
   }
 }
