@@ -12,6 +12,7 @@ export class SearchResultsComponent implements OnInit {
 
   @Input() public items: SearchItem[];
   @Input() public sort: [string, string, boolean];
+  @Input() public wordSort: string;
 
     public ngOnInit(): void {
   }

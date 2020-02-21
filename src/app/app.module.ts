@@ -22,6 +22,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 
 import { SortingDataPipe } from './pipes/sorting-data.pipe';
+import { SortingInputPipe } from './pipes/sorting-input.pipe';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { SortingDataPipe } from './pipes/sorting-data.pipe';
     SearchItemComponent,
     SearchSortingComponent,
     UserLoginComponent,
-    SortingDataPipe
+    SortingDataPipe,
+    SortingInputPipe
   ],
   imports: [
     BrowserModule,
@@ -47,7 +49,10 @@ import { SortingDataPipe } from './pipes/sorting-data.pipe';
     HttpClientModule,
     FormsModule
   ],
-  providers: [SortingDataPipe],
+  providers: [
+    SortingDataPipe,
+    SortingInputPipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

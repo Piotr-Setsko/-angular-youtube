@@ -10,9 +10,11 @@ export class SearchSortingComponent implements OnInit {
   @Input() public isShow: boolean;
   public order: [string, string, boolean];
   public reverse: boolean = true;
+  public wordInput: string = '';
 
   @Output() public dateSorting: EventEmitter<[string, string, boolean]> = new EventEmitter();
   @Output() public viewsSorting: EventEmitter<[string, string, boolean]> = new EventEmitter();
+  @Output() public wordSorting: EventEmitter<string> = new EventEmitter();
 
   constructor() { }
 
@@ -21,10 +23,16 @@ export class SearchSortingComponent implements OnInit {
     this.order = ['snippet', 'publishedAt', this.reverse];
     this.dateSorting.emit(this.order);
   }
+
   public sortViews(): void {
     this.reverse = !this.reverse;
     this.order = ['statistics', 'viewCount', this.reverse];
     this.viewsSorting.emit(this.order);
+  }
+
+  public wordSort(event: string): void {
+    this.wordInput = event;
+    this.wordSorting.emit(this.wordInput);
   }
 
   public ngOnInit(): void {
