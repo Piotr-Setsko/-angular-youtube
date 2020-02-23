@@ -22,21 +22,22 @@
   font-weight: 600;
 }
 
-.greenClass {
-  border-bottom: 10px solid $green;
+.weekClass {
+  border-bottom: 10px solid $weekColor;
 }
 
-.redClass {
-  border-bottom: 10px solid $red;
+.monthClass {
+  border-bottom: 10px solid $monthColor;
 }
 
-.yellowClass {
-  border-bottom: 10px solid $yellow;
+.lessSixMonthClass {
+  border-bottom: 10px solid $lessSixMonthColor;
 }
 
-.blueClass {
-  border-bottom: 10px solid $blue;
+.moreSixMonthClass {
+  border-bottom: 10px solid $moreSixMonthColor;
 }
+
 
 .card__btn {
   display: block;

@@ -12,13 +12,13 @@ export class BorderColorDirective implements OnInit {
 
   public ngOnInit(): void {
     if (this.itemDate < 7) {
-      this.borderBottom = 'blueClass';
+      this.borderBottom = 'weekClass';
     } else if (this.itemDate < 30) {
-      this.borderBottom = 'greenClass';
+      this.borderBottom = 'monthClass';
     } else if (this.itemDate < 180) {
-      this.borderBottom = 'yellowClass';
+      this.borderBottom = 'lessSixMonthClass';
     } else {
-      this.borderBottom = 'redClass';
+      this.borderBottom = 'moreSixMonthClass';
     }
     this.renderer.addClass(this.elementRef.nativeElement, this.borderBottom);
   }

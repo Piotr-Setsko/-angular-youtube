@@ -12,7 +12,7 @@ import { SearchItem } from './models/search-item.model';
 export class AppComponent {
 
   public show: boolean = false;
-  public itemsResp: SearchItem[] = response.items;
+  public itemsResp: SearchItem[] = [];
   public arr: [string, string, boolean] = ['', '', false];
   public inputWord: string = '';
 
