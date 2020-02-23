@@ -14,6 +14,7 @@ export class SearchItemComponent implements OnInit {
   private _publicDate: number;
 
   @Input() public itemCard: SearchItem;
+
   @Input()
   set publicDate(publicDate: number) {
     this._publicDate = (+new Date() - new Date(publicDate).getTime()) / (1000 * 60 * 60 * 24);

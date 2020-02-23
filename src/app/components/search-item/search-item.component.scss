@@ -1,3 +1,5 @@
+@import "../../constants.scss";
+
 .mat-card {
   background-color: #E5E5E5;
   padding: 40px;
@@ -21,19 +23,19 @@
 }
 
 .greenClass {
-  border-bottom: 10px solid green;
+  border-bottom: 10px solid $green;
 }
 
 .redClass {
-  border-bottom: 10px solid red;
+  border-bottom: 10px solid $red;
 }
 
 .yellowClass {
-  border-bottom: 10px solid yellow;
+  border-bottom: 10px solid $yellow;
 }
 
 .blueClass {
-  border-bottom: 10px solid blue;
+  border-bottom: 10px solid $blue;
 }
 
 .card__btn {

@@ -1,4 +1,4 @@
-<mat-card [ngClass]="{blueClass: (publicDate < 7), greenClass: (publicDate > 7) && (publicDate < 30), yellowClass: (publicDate > 30) && (publicDate < 180), redClass: publicDate > 180}">
+<mat-card appBorderColor [itemDate]="publicDate">
   <img mat-card-image [src]="itemCard.snippet.thumbnails.high.url" alt="">
   <mat-card-content>
     <mat-icon svgIcon="viewed" aria-hidden="false"></mat-icon>
