@@ -1,8 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
-import { response } from '../../response';
-import { SearchItem } from '../../models/search-item.model';
+import { response } from '../../../response';
+import { SearchItem } from '../../../models/search-item.model';
 
 @Component({
   selector: 'app-header',
