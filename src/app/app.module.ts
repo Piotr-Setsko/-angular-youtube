@@ -5,11 +5,11 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { HeaderComponent } from './components/header/header.component';
-import { SearchResultsComponent } from './components/search-results/search-results.component';
-import { SearchItemComponent } from './components/search-item/search-item.component';
-import { SearchSortingComponent } from './components/search-sorting/search-sorting.component';
-import { UserLoginComponent } from './components/user-login/user-login.component';
+import { HeaderComponent } from './core/components/header/header.component';
+import { SearchResultsComponent } from './youtube/components/search-results/search-results.component';
+import { SearchItemComponent } from './youtube/components/search-item/search-item.component';
+import { SearchSortingComponent } from './youtube/components/search-sorting/search-sorting.component';
+import { UserLoginComponent } from './auth/components/user-login/user-login.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -21,10 +21,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 
-import { SortingDataPipe } from './pipes/sorting-data.pipe';
-import { SortingInputPipe } from './pipes/sorting-input.pipe';
-import { BorderColorDirective } from './directives/border-color.directive';
-import { LoginComponent } from './auth/components/login/login/login.component';
+import { SortingDataPipe } from './youtube/pipes/sorting-data.pipe';
+import { SortingInputPipe } from './youtube/pipes/sorting-input.pipe';
+import { BorderColorDirective } from './youtube/directives/border-color.directive';
+import { MainPageComponent } from './youtube/pages/main-page/main-page.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +37,7 @@ import { LoginComponent } from './auth/components/login/login/login.component';
     SortingDataPipe,
     SortingInputPipe,
     BorderColorDirective,
-    LoginComponent
+    MainPageComponent
   ],
   imports: [
     BrowserModule,

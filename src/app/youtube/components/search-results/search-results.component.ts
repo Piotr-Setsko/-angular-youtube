@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { SearchItem } from '../../models/search-item.model';
-import { SortingDataPipe } from '../../pipes/sorting-data.pipe';
+import { SearchItem } from '../../../models/search-item.model';
 
 @Component({
   selector: 'app-search-results',
