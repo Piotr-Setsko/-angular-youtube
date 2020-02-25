@@ -24,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SortingDataPipe } from './pipes/sorting-data.pipe';
 import { SortingInputPipe } from './pipes/sorting-input.pipe';
 import { BorderColorDirective } from './directives/border-color.directive';
+import { LoginComponent } from './auth/components/login/login/login.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { BorderColorDirective } from './directives/border-color.directive';
     UserLoginComponent,
     SortingDataPipe,
     SortingInputPipe,
-    BorderColorDirective
+    BorderColorDirective,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
