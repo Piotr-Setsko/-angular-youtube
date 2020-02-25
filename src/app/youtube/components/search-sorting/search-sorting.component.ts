@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { DataService } from '../../../core/services/data.service';
 
 @Component({
   selector: 'app-search-sorting',
@@ -16,7 +17,12 @@ export class SearchSortingComponent implements OnInit {
   @Output() public viewsSorting: EventEmitter<[string, string, boolean]> = new EventEmitter();
   @Output() public wordSorting: EventEmitter<string> = new EventEmitter();
 
-  constructor() { }
+  constructor(private dataService: DataService){
+    this.dataService.clickChange.subscribe(isShow => this.isShow = !isShow);
+  }
+
+  public ngOnInit(): void {
+  }
 
   public sortDate(): void {
     this.reverse = !this.reverse;
@@ -33,8 +39,5 @@ export class SearchSortingComponent implements OnInit {
   public wordSort(event: string): void {
     this.wordInput = event;
     this.wordSorting.emit(this.wordInput);
-  }
-
-  public ngOnInit(): void {
   }
 }
