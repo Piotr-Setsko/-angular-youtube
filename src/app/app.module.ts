@@ -27,6 +27,7 @@ import { BorderColorDirective } from './youtube/directives/border-color.directiv
 import { MainPageComponent } from './youtube/pages/main-page/main-page.component';
 
 import { DataService } from './core/services/data.service';
+import { SortService } from './youtube/services/sort.service';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { DataService } from './core/services/data.service';
   providers: [
     SortingDataPipe,
     SortingInputPipe,
-    DataService
+    DataService,
+    SortService
   ],
   bootstrap: [AppComponent]
 })
