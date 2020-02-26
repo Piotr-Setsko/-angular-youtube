@@ -1,8 +1,8 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
-import { response } from '../../../response';
-import { SearchItem } from '../../../models/search-item.model';
+import { response } from '../../../youtube/response';
+import { SearchItem } from '../../../youtube/models/search-item.model';
 
 import { DataService } from '../../services/data.service';
 

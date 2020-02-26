@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { SearchItem } from '../../../models/search-item.model';
+import { SearchItem } from '../../models/search-item.model';
 
 import { DataService } from '../../../core/services/data.service';
 import { SortService } from '../../services/sort.service';
