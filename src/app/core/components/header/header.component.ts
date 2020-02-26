@@ -4,7 +4,7 @@ import { NgForm } from '@angular/forms';
 import { response } from '../../../response';
 import { SearchItem } from '../../../models/search-item.model';
 
-import { DataService } from '../../services/data.service'
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-header',

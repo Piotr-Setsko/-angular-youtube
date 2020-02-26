@@ -13,6 +13,8 @@ export class DataService {
   public clickChange: EventEmitter<boolean> = new EventEmitter();
   public clickSubmit: EventEmitter<SearchItem[]> = new EventEmitter();
 
+  constructor() { }
+
   public onClicked(): void {
     this.show = !this.show;
     this.clickChange.emit(this.show);
@@ -22,6 +24,4 @@ export class DataService {
     this.itemsResp = event;
     this.clickSubmit.emit(this.itemsResp);
   }
-
-  constructor() { }
 }

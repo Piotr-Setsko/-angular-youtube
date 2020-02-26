@@ -4,7 +4,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { MainPageComponent } from './youtube/pages/main-page/main-page.component';
 import { UserLoginComponent } from './auth/components/user-login/user-login.component';
 
-
 const routes: Routes = [
   { path: '', component: MainPageComponent},
 ];

@@ -7,21 +7,20 @@ import { SortService } from '../../services/sort.service';
   templateUrl: './search-sorting.component.html',
   styleUrls: ['./search-sorting.component.scss']
 })
+
 export class SearchSortingComponent implements OnInit {
 
   public isShow: boolean;
 
   public reverse: boolean;
   public order: [string, string, boolean];
-  public wordInput: string = '';
+  public wordInput: string;
 
-  //@Output() public dateSorting: EventEmitter<[string, string, boolean]> = new EventEmitter();
-  @Output() public viewsSorting: EventEmitter<[string, string, boolean]> = new EventEmitter();
-  @Output() public wordSorting: EventEmitter<string> = new EventEmitter();
-
-  constructor(private dataService: DataService, private sortService: SortService){
+  constructor(private dataService: DataService, private sortService: SortService) {
     this.dataService.clickChange.subscribe(isShow => this.isShow = isShow);
     this.sortService.dateSorting.subscribe(order => this.order = order);
+    this.sortService.viewsSorting.subscribe(order => this.order = order);
+    this.sortService.wordSorting.subscribe(wordInput => this.wordInput = wordInput);
   }
 
   public ngOnInit(): void {
@@ -36,11 +35,11 @@ export class SearchSortingComponent implements OnInit {
   public sortViews(): void {
     this.reverse = !this.reverse;
     this.order = ['statistics', 'viewCount', this.reverse];
-    this.viewsSorting.emit(this.order);
+    this.sortService.onClickedViews(this.order);
   }
 
   public wordSort(event: string): void {
     this.wordInput = event;
-    this.wordSorting.emit(this.wordInput);
+    this.sortService.onInputWord(this.wordInput);
   }
 }
