@@ -1,43 +1,33 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
-import { response } from '../../../response';
-import { SearchItem } from '../../../models/search-item.model';
+import { response } from '../../../youtube/response';
+import { SearchItem } from '../../../youtube/models/search-item.model';
 
-import { DataService } from '../../services/data.service'
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
-  providers: [DataService]
+  styleUrls: ['./header.component.scss']
 })
 
 export class HeaderComponent implements OnInit {
 
-  public isShow: boolean = false;
   public items: SearchItem[] = response.items;
   public search: string;
 
-/*
-  @Output() public clickChange: EventEmitter<boolean> = new EventEmitter();
-  @Output() public clickSubmit: EventEmitter<SearchItem[]> = new EventEmitter();
-*/
-
-
-  constructor(private dataService: DataService){
-    this.dataService.clickChange.subscribe(isShow => this.isShow = !isShow);
+  constructor(private dataService: DataService) {
+    this.dataService.clickSubmit.subscribe(items => this.items = items);
   }
 
   public toggleDisplay(): void {
-      this.dataService.onClicked(this.isShow);
-    // this.isShow = !this.isShow;
-    // this.clickChange.emit(this.isShow);
+      this.dataService.onClicked();
   }
 
   public add(myform: NgForm): void {
     if (myform.value.search !== undefined) {
-      // this.clickSubmit.emit(this.items);
+      this.dataService.onClickedResp(this.items);
     }
   }
 

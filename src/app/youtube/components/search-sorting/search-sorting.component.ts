@@ -1,24 +1,26 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DataService } from '../../../core/services/data.service';
+import { SortService } from '../../services/sort.service';
 
 @Component({
   selector: 'app-search-sorting',
   templateUrl: './search-sorting.component.html',
   styleUrls: ['./search-sorting.component.scss']
 })
+
 export class SearchSortingComponent implements OnInit {
 
-  @Input() public isShow: boolean;
+  public isShow: boolean;
+
+  public reverse: boolean;
   public order: [string, string, boolean];
-  public reverse: boolean = true;
-  public wordInput: string = '';
+  public wordInput: string;
 
-  @Output() public dateSorting: EventEmitter<[string, string, boolean]> = new EventEmitter();
-  @Output() public viewsSorting: EventEmitter<[string, string, boolean]> = new EventEmitter();
-  @Output() public wordSorting: EventEmitter<string> = new EventEmitter();
-
-  constructor(private dataService: DataService){
-    this.dataService.clickChange.subscribe(isShow => this.isShow = !isShow);
+  constructor(private dataService: DataService, private sortService: SortService) {
+    this.dataService.clickChange.subscribe(isShow => this.isShow = isShow);
+    this.sortService.dateSorting.subscribe(order => this.order = order);
+    this.sortService.viewsSorting.subscribe(order => this.order = order);
+    this.sortService.wordSorting.subscribe(wordInput => this.wordInput = wordInput);
   }
 
   public ngOnInit(): void {
@@ -27,17 +29,17 @@ export class SearchSortingComponent implements OnInit {
   public sortDate(): void {
     this.reverse = !this.reverse;
     this.order = ['snippet', 'publishedAt', this.reverse];
-    this.dateSorting.emit(this.order);
+    this.sortService.onClickedDate(this.order);
   }
 
   public sortViews(): void {
     this.reverse = !this.reverse;
     this.order = ['statistics', 'viewCount', this.reverse];
-    this.viewsSorting.emit(this.order);
+    this.sortService.onClickedViews(this.order);
   }
 
   public wordSort(event: string): void {
     this.wordInput = event;
-    this.wordSorting.emit(this.wordInput);
+    this.sortService.onInputWord(this.wordInput);
   }
 }

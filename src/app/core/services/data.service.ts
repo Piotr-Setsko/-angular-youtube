@@ -1,17 +1,27 @@
 import { Injectable, EventEmitter } from '@angular/core';
+import { SearchItem } from '../../youtube/models/search-item.model';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class DataService {
 
   private show: boolean = false;
-  clickChange: EventEmitter<boolean> = new EventEmitter();
+  private itemsResp: SearchItem[];
 
-  public onClicked(show: boolean): void {
-    this.show = show;
+  public clickChange: EventEmitter<boolean> = new EventEmitter();
+  public clickSubmit: EventEmitter<SearchItem[]> = new EventEmitter();
+
+  constructor() { }
+
+  public onClicked(): void {
+    this.show = !this.show;
     this.clickChange.emit(this.show);
   }
 
-  constructor() { }
+  public onClickedResp(event: SearchItem[]): void {
+    this.itemsResp = event;
+    this.clickSubmit.emit(this.itemsResp);
+  }
 }
