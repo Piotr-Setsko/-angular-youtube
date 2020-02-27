@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SearchItem } from '../../models/search-item.model';
 
 import { DataService } from '../../../core/services/data.service';
@@ -25,5 +25,4 @@ export class SearchResultsComponent implements OnInit {
 
     public ngOnInit(): void {
   }
-
 }
