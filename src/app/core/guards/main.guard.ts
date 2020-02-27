@@ -1,23 +1,30 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, CanDeactivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
-import { Observable } from 'rxjs';
-
-import { LoginService } from '../../auth/services/login.service';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MainGuard implements CanActivate {
 
-  constructor(private authService: LoginService, private router: Router) {}
+  constructor(private router: Router) {}
 
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean {
-      if (localStorage.getItem('currentUser')) {
+      if (this.isLoggedIn()) {
         return true;
-    }
+      }
     this.router.navigate(['login']);
     return false;
-}
+  }
+
+  public isLoggedIn(): boolean {
+    let status = false;
+    if (localStorage.getItem('user') == "loggedin") {
+      status = true;
+      } else {
+      status = false;
+      }
+    return status;
+  }
 }

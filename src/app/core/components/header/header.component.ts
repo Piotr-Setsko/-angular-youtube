@@ -18,9 +18,11 @@ export class HeaderComponent implements OnInit {
 
   public items: SearchItem[] = response.items;
   public search: string;
+  public show: boolean = false;
 
   constructor(private dataService: DataService, private router: Router, private loginService: LoginService) {
     this.dataService.clickSubmit.subscribe(items => this.items = items);
+    this.loginService.logined.subscribe(show => this.show = show);
   }
 
   public toggleDisplay(): void {
@@ -35,8 +37,13 @@ export class HeaderComponent implements OnInit {
 
   public logout(): void {
     this.loginService.logout();
+    this.show = false;
     this.router.navigate(['']);
   }
 
-  public ngOnInit(): void {}
+  public ngOnInit(): void {
+    if (localStorage.getItem('user') !== null) {
+      this.show = true;
+    }
+  }
 }

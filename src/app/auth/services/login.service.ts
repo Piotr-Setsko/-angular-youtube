@@ -1,23 +1,24 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-  login(username: string, password: string) {
-    if (username == "admin" && password == "admin") {
-      localStorage.setItem('currentUser', "loggedin");
+  public logined: EventEmitter<boolean> = new EventEmitter();
+
+  auth(username: string, password: string, show: boolean) {
+      localStorage.setItem('user', "loggedin");
+      this.logined.emit(show);
       return true;
-    }
   }
 
   logout() {
-    localStorage.removeItem('currentUser');
+    localStorage.removeItem('user');
   }
-  
+
   public get loggedIn(): boolean {
-    return (localStorage.getItem('currentUser') !== null);
+    return (localStorage.getItem('user') !== null);
   }
 
   constructor() { }

@@ -17,10 +17,11 @@
 }
 
 .header__main {
-  margin: 0 20%;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  width: 50%;
+  margin-right: 10%;
 }
 
 form {
@@ -28,10 +29,11 @@ form {
   flex-wrap: nowrap;
   align-items: center;
   margin-right: 15px;
+  width: 55%;
 }
 
 .mat-form-field {
-  min-width: 400px;
+  min-width: 80%;
 }
 
 #search {
@@ -73,3 +75,9 @@ form {
 .header__user-name {
   margin-right: 15px;
 }
+
+.header__user-logout {
+  margin-left: 25%;
+  margin-bottom: 10px;
+}
+

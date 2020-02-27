@@ -13,20 +13,20 @@ export class UserLoginComponent implements OnInit {
 
   public login: string = '';
   public password: string = '';
+  public show: boolean;
 
   constructor(private loginService: LoginService, private router: Router) {
     if (this.loginService.loggedIn) {
-      this.router.navigate(['']);
+      this.router.navigate(['main']);
     }
    }
 
   public auth(): void {
-    console.log(this.login, this.password)
-    if (this.login !== null && this.password !== null) {
-      if (this.loginService.login(this.login, this.password)) {
-        this.router.navigate(["home"]);
-      }
-      else
+    if (this.login !== '' && this.password !== '') {
+      this.show = true;
+      this.loginService.auth(this.login, this.password, this.show);
+        this.router.navigate(['main']);
+      } else {
         alert("Wrong username or password");
     }
   }
