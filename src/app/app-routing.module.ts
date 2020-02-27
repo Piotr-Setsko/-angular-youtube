@@ -3,13 +3,16 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { MainGuard } from './core/guards/main.guard';
 
-import { MainPageComponent } from './youtube/pages/main-page/main-page.component';
-import { LoginComponent } from './auth/pages/login/login.component';
+//import { MainPageComponent } from './youtube/pages/main-page/main-page.component';
+//import { LoginPageComponent } from './auth/pages/login-page/login-page.component';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent},
-  { path: 'login', component: LoginComponent},
-  { path: 'main', component: MainPageComponent, canActivate: [MainGuard] }
+  { path: '', 
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)},
+  { path: 'login', 
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)},
+  { path: 'main',
+    loadChildren: () => import('./youtube/youtube.module').then(m => m.YoutubeModule), canActivate: [MainGuard] }
 ];
 
 @NgModule({

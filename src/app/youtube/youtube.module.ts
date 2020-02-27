@@ -6,6 +6,7 @@ import { SearchItemComponent } from './components/search-item/search-item.compon
 import { SearchSortingComponent } from './components/search-sorting/search-sorting.component';
 
 import { MainPageComponent } from './pages/main-page/main-page.component';
+import { YoutubeRoutingModule } from './youtube-routing.module';
 
 import { BorderColorDirective } from './directives/border-color.directive';
 import { SortingDataPipe } from './pipes/sorting-data.pipe';
@@ -23,7 +24,8 @@ import { SortService } from './services/sort.service';
     SortingInputPipe
   ],
   imports: [
-    SharedModule
+    SharedModule,
+    YoutubeRoutingModule
   ],
   providers: [
     SortService

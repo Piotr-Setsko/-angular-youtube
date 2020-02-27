@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
 
   public items: SearchItem[] = response.items;
   public search: string;
-  public show: boolean = false;
+  public show: boolean;
 
   constructor(private dataService: DataService, private router: Router, private loginService: LoginService) {
     this.dataService.clickSubmit.subscribe(items => this.items = items);
@@ -41,9 +41,11 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['']);
   }
 
-  public ngOnInit(): void {
+  
+  public ngOnInit(): void {    
     if (localStorage.getItem('user') !== null) {
       this.show = true;
+      console.log(this.show);
     }
   }
 }

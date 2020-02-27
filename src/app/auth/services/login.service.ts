@@ -10,6 +10,7 @@ export class LoginService {
   auth(username: string, password: string, show: boolean) {
       localStorage.setItem('user', "loggedin");
       this.logined.emit(show);
+      //console.log(show)
       return true;
   }
 

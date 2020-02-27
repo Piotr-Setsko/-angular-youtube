@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
@@ -16,8 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [],
   imports: [
     CommonModule,
-    FormsModule,
-    BrowserAnimationsModule,
+    FormsModule,    
     LayoutModule,
     MatFormFieldModule,
     MatButtonModule,
@@ -29,8 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   exports: [
     CommonModule,
-    FormsModule,
-    BrowserAnimationsModule,
+    FormsModule,    
     LayoutModule,
     MatFormFieldModule,
     MatButtonModule,
