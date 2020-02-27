@@ -15,7 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [],
   imports: [
     CommonModule,
-    FormsModule,    
+    FormsModule,
     LayoutModule,
     MatFormFieldModule,
     MatButtonModule,
@@ -27,7 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   exports: [
     CommonModule,
-    FormsModule,    
+    FormsModule,
     LayoutModule,
     MatFormFieldModule,
     MatButtonModule,

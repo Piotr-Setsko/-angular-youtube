@@ -7,20 +7,19 @@ export class LoginService {
 
   public logined: EventEmitter<boolean> = new EventEmitter();
 
-  auth(username: string, password: string, show: boolean) {
-      localStorage.setItem('user', "loggedin");
+  constructor() { }
+
+  public auth(username: string, password: string, show: boolean): boolean {
+      localStorage.setItem('user', 'loggedin');
       this.logined.emit(show);
-      //console.log(show)
       return true;
   }
 
-  logout() {
+  public logout(): void {
     localStorage.removeItem('user');
   }
 
   public get loggedIn(): boolean {
     return (localStorage.getItem('user') !== null);
   }
-
-  constructor() { }
 }

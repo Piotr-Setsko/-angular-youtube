@@ -8,19 +8,20 @@ export class MainGuard implements CanActivate {
 
   constructor(private router: Router) {}
 
-  canActivate(
+  public canActivate (
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean {
       if (this.isLoggedIn()) {
         return true;
       }
-    this.router.navigate(['login']);
-    return false;
-  }
+      this.router.navigate(['login']);
+      return false;
+    }
 
   public isLoggedIn(): boolean {
-    let status = false;
-    if (localStorage.getItem('user') == "loggedin") {
+    let status: boolean;
+    status = false;
+    if (localStorage.getItem('user') === 'loggedin') {
       status = true;
       } else {
       status = false;

@@ -25,9 +25,9 @@ export class UserLoginComponent implements OnInit {
     if (this.login !== '' && this.password !== '') {
       this.show = true;
       this.loginService.auth(this.login, this.password, this.show);
-        this.router.navigate(['main']);
+      this.router.navigate(['main']);
       } else {
-        alert("Wrong username or password");
+        alert('Wrong username or password');
     }
   }
 
