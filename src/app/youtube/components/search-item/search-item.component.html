@@ -11,7 +11,7 @@
     <mat-card-subtitle>{{itemCard.statistics.commentCount}}</mat-card-subtitle>
   </mat-card-content>
   <mat-card-title>{{itemCard.snippet.title}}</mat-card-title>
-  <button mat-flat-button class="card__btn" color="primary">more...</button>
+  <button [routerLink]="id" mat-flat-button class="card__btn" color="primary">more...</button>
 </mat-card>
 
 

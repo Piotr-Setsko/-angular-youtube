@@ -1,2 +1,2 @@
-  <app-search-item class="search__item" *ngFor="let item of items | orderBy: sort[0]: sort[1]: sort[2] | input: wordSort" [itemCard]="item" [publicDate]="item.snippet.publishedAt"></app-search-item>
+  <app-search-item class="search__item" *ngFor="let item of items | orderBy: sort[0]: sort[1]: sort[2] | input: wordSort" [itemCard]="item" [publicDate]="item.snippet.publishedAt" [id]="item.id"></app-search-item>
 

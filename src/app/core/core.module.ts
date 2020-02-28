@@ -4,6 +4,7 @@ import { SharedModule } from '../shared/shared.module';
 
 import { HeaderComponent} from './components/header/header.component';
 import { DataService } from './services/data.service';
+import { Page404Component } from './pages/page404/page404.component';
 
 @NgModule({
   imports: [
@@ -11,7 +12,8 @@ import { DataService } from './services/data.service';
     SharedModule
   ],
   declarations: [
-    HeaderComponent
+    HeaderComponent,
+    Page404Component
   ],
   exports: [
     HeaderComponent

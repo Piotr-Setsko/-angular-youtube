@@ -38,12 +38,12 @@ export class HeaderComponent implements OnInit {
   public logout(): void {
     this.loginService.logout();
     //this.show = false;
-    this.router.navigate(['']);
+    this.router.navigate(['login']);
   }
 
   public ngOnInit(): void {
     if (localStorage.getItem('user') !== null) {
-      this.show = true;      
+      this.show = true;
     }
   }
 }

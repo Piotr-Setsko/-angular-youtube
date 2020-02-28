@@ -12,6 +12,7 @@ import { BorderColorDirective } from './directives/border-color.directive';
 import { SortingDataPipe } from './pipes/sorting-data.pipe';
 import { SortingInputPipe } from './pipes/sorting-input.pipe';
 import { SortService } from './services/sort.service';
+import { DetailedInformationComponent } from './pages/detailed-information/detailed-information.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { SortService } from './services/sort.service';
     MainPageComponent,
     BorderColorDirective,
     SortingDataPipe,
-    SortingInputPipe
+    SortingInputPipe,
+    DetailedInformationComponent
   ],
   imports: [
     SharedModule,

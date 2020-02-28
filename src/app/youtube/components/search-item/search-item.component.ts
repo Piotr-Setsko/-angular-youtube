@@ -4,6 +4,9 @@ import { DomSanitizer } from '@angular/platform-browser';
 
 import { SearchItem } from '../../models/search-item.model';
 
+import { ActivatedRoute} from '@angular/router';
+import {Subscription} from 'rxjs';
+
 @Component({
   selector: 'app-search-item',
   templateUrl: './search-item.component.html',
@@ -12,8 +15,10 @@ import { SearchItem } from '../../models/search-item.model';
 export class SearchItemComponent implements OnInit {
 
   private _publicDate: number;
+  private routeSubscription: Subscription;
 
   @Input() public itemCard: SearchItem;
+  @Input() public id: string;
 
   @Input()
   set publicDate(publicDate: number) {
@@ -23,7 +28,7 @@ export class SearchItemComponent implements OnInit {
     return this._publicDate;
   }
 
-  constructor (private iconRegistry: MatIconRegistry, private sanitizer: DomSanitizer) {
+  constructor (private iconRegistry: MatIconRegistry, private sanitizer: DomSanitizer, private route: ActivatedRoute) {
     this.iconRegistry.addSvgIcon(
       'viewed',
       this.sanitizer.bypassSecurityTrustResourceUrl('../../assets/viewed.svg'));
@@ -36,6 +41,9 @@ export class SearchItemComponent implements OnInit {
     this.iconRegistry.addSvgIcon(
       'comments',
       this.sanitizer.bypassSecurityTrustResourceUrl('../../assets/comments.svg'));
+
+      this.routeSubscription = route.params.subscribe(params=>this.id=params['id']);
+      console.log(this.id);
   }
 
   public ngOnInit(): void {
