@@ -15,7 +15,6 @@ import {Subscription} from 'rxjs';
 export class SearchItemComponent implements OnInit {
 
   private _publicDate: number;
-  private routeSubscription: Subscription;
 
   @Input() public itemCard: SearchItem;
   @Input() public id: string;
@@ -28,7 +27,7 @@ export class SearchItemComponent implements OnInit {
     return this._publicDate;
   }
 
-  constructor (private iconRegistry: MatIconRegistry, private sanitizer: DomSanitizer, private route: ActivatedRoute) {
+  constructor (private iconRegistry: MatIconRegistry, private sanitizer: DomSanitizer) {
     this.iconRegistry.addSvgIcon(
       'viewed',
       this.sanitizer.bypassSecurityTrustResourceUrl('../../assets/viewed.svg'));
@@ -41,9 +40,6 @@ export class SearchItemComponent implements OnInit {
     this.iconRegistry.addSvgIcon(
       'comments',
       this.sanitizer.bypassSecurityTrustResourceUrl('../../assets/comments.svg'));
-
-      this.routeSubscription = route.params.subscribe(params=>this.id=params['id']);
-      console.log(this.id);
   }
 
   public ngOnInit(): void {

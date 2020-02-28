@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input  } from '@angular/core';
+
+import { ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-detailed-information',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailedInformationComponent implements OnInit {
 
-  constructor() { }
+  @Input() public id: string;
 
-  ngOnInit(): void {
+  constructor(private activateRoute: ActivatedRoute) {
+    this.id = activateRoute.snapshot.params['id'];
+}
+
+  public ngOnInit(): void {
   }
 
 }
