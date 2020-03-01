@@ -11,6 +11,7 @@ export class BorderColorDirective implements OnInit {
   constructor(private elementRef: ElementRef, private renderer: Renderer2) {}
 
   public ngOnInit(): void {
+    this.itemDate = (+new Date() - new Date(this.itemDate).getTime()) / (1000 * 60 * 60 * 24);
     if (this.itemDate < 7) {
       this.borderBottom = 'weekClass';
     } else if (this.itemDate < 30) {

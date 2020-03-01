@@ -1,1 +1,21 @@
-<h1>{{id}}</h1>
+<button (click)="goBack()" appBorderColor mat-flat-button class="card__btn" color="primary"><</button>
+<mat-card>
+  <img mat-card-image [src]="item.snippet.thumbnails.standard.url" alt="">
+  <mat-card-content appBorderColor>
+    <mat-card-header>
+      <mat-card-title>{{item.snippet.title}}</mat-card-title>
+      <mat-card-subtitle class="detailed__date">{{item.snippet.publishedAt | date: 'fullDate'}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="detail__description">{{item.snippet.localized.description}}</mat-card-content>
+    <mat-card-footer>
+    <mat-icon svgIcon="viewed" aria-hidden="false"></mat-icon>
+    <mat-card-subtitle>{{item.statistics.viewCount}}</mat-card-subtitle>
+    <mat-icon svgIcon="liked" aria-hidden="false"></mat-icon>
+    <mat-card-subtitle>{{item.statistics.likeCount}}</mat-card-subtitle>
+    <mat-icon svgIcon="dislike" aria-hidden="false"></mat-icon>
+    <mat-card-subtitle>{{item.statistics.dislikeCount}}</mat-card-subtitle>
+    <mat-icon svgIcon="comments" aria-hidden="false"></mat-icon>
+    <mat-card-subtitle>{{item.statistics.commentCount}}</mat-card-subtitle>
+  </mat-card-footer>
+  </mat-card-content>
+</mat-card>

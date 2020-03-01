@@ -1,0 +1,92 @@
+@import "../../../constants.scss";
+
+:host {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.mat-flat-button {
+  padding: 5px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  font-size: 35px;
+}
+
+.mat-card {
+  display: flex;
+  padding: 0;
+  width: 70%;
+  background-color: #E5E5E5;
+  box-shadow: 5px 5px 20px rgba(51, 51, 51, 0.25);
+  border-radius: 0px 5px 5px 0px;
+}
+
+.mat-card-image {
+  width: 70%;
+  height: auto;
+  margin: 0;
+  padding-top: 16px;
+  border-bottom-left-radius: 5px;
+}
+
+.mat-card-content {
+  display: block;
+  border-bottom-right-radius: 5px;
+}
+
+.mat-card-header {
+  padding-top: 30px;
+}
+
+.mat-card-footer {
+  display: flex;
+  margin: 15px 0;
+  justify-content: center;
+  & > * {
+    padding-right: 10px;
+  }
+}
+
+.detailed__date {
+  text-align: right;
+}
+
+.detail__description {
+  padding: 0 10px;
+  white-space: pre-wrap;
+}
+
+.weekClass {
+  border-bottom: 10px solid $weekColor;
+  &.mat-flat-button {
+    background-color: $weekColor;
+    border-width: 0;
+  }
+}
+
+.monthClass {
+  border-bottom: 10px solid $monthColor;
+  &.mat-flat-button {
+    background-color: $monthColor;
+    border-width: 0;
+  }
+}
+
+.lessSixMonthClass {
+  border-bottom: 10px solid $lessSixMonthColor;
+  &.mat-flat-button {
+    background-color: $lessSixMonthColor;
+    border-width: 0;
+  }
+}
+
+.moreSixMonthClass {
+  border-bottom: 10px solid $moreSixMonthColor;
+  &.mat-flat-button {
+    background-color: $moreSixMonthColor;
+    border-width: 0;
+  }
+}

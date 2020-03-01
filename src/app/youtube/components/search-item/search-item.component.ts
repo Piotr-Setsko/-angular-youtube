@@ -5,7 +5,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { SearchItem } from '../../models/search-item.model';
 
 import { ActivatedRoute} from '@angular/router';
-import {Subscription} from 'rxjs';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-search-item',
@@ -14,18 +14,19 @@ import {Subscription} from 'rxjs';
 })
 export class SearchItemComponent implements OnInit {
 
-  private _publicDate: number;
+
 
   @Input() public itemCard: SearchItem;
+  @Input() publicDate: number;
   @Input() public id: string;
 
-  @Input()
-  set publicDate(publicDate: number) {
-    this._publicDate = (+new Date() - new Date(publicDate).getTime()) / (1000 * 60 * 60 * 24);
-  }
-  get publicDate(): number {
-    return this._publicDate;
-  }
+  // @Input()
+  //set publicDate(publicDate: number) {
+  //  this._publicDate = (+new Date() - new Date(publicDate).getTime()) / (1000 * 60 * 60 * 24);
+  //}
+  //get publicDate(): number {
+  //  return this._publicDate;
+  //}
 
   constructor (private iconRegistry: MatIconRegistry, private sanitizer: DomSanitizer) {
     this.iconRegistry.addSvgIcon(
