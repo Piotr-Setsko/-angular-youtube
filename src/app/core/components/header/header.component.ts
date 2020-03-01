@@ -7,6 +7,7 @@ import { response } from '../../../youtube/response';
 import { SearchItem } from '../../../youtube/models/search-item.model';
 
 import { DataService } from '../../services/data.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -18,11 +19,10 @@ export class HeaderComponent implements OnInit {
 
   public items: SearchItem[] = response.items;
   public search: string;
-  public show: boolean = true;
+  public show: boolean;
 
   constructor(private dataService: DataService, private router: Router, private loginService: LoginService) {
     this.dataService.clickSubmit.subscribe(items => this.items = items);
-    this.loginService.logined.subscribe(show => this.show = show);
   }
 
   public toggleDisplay(): void {
@@ -37,13 +37,10 @@ export class HeaderComponent implements OnInit {
 
   public logout(): void {
     this.loginService.logout();
-    // this.show = false;
     this.router.navigate(['login']);
   }
 
   public ngOnInit(): void {
-    if (localStorage.getItem('user') !== null) {
-      this.show = true;
-    }
+    this.loginService.currentLoginState.subscribe((data) => { this.show = data; });
   }
 }

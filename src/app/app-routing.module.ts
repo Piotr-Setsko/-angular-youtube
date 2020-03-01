@@ -11,7 +11,7 @@ const routes: Routes = [
     loadChildren: () => import('./youtube/youtube.module')
       .then(m => m.YoutubeModule), canActivate: [MainGuard] },
   { path: '', redirectTo: '/main', pathMatch: 'full' },
-  { path: '**', component: Page404Component }
+  { path: '**', component: Page404Component, canActivate: [MainGuard] }
 ];
 
 @NgModule({

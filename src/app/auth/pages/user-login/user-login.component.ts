@@ -22,13 +22,8 @@ export class UserLoginComponent implements OnInit {
    }
 
   public auth(): void {
-    if (this.login !== '' && this.password !== '') {
-      this.show = true;
-      this.loginService.auth(this.login, this.password, this.show);
+      this.loginService.auth(this.login, this.password);
       this.router.navigate(['main']);
-      } else {
-        alert('Wrong username or password');
-    }
   }
 
   public ngOnInit(): void {

@@ -16,7 +16,7 @@
     <button mat-flat-button color="primary" class="header__btn header__btn--user"><img src="../../../assets/login.svg" alt="user login"></button>
   </div>
   <div class="header__user-logout" *ngIf='show'>
-    <button mat-flat-button color="primary" (click)="logout()" class="btn btn-danger">Logout</button>
+    <button mat-flat-button color="primary" *ngIf="show" (click)="logout()" class="btn btn-danger">Logout</button>
   </div>
   </div>
 </div>

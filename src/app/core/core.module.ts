@@ -4,6 +4,7 @@ import { SharedModule } from '../shared/shared.module';
 
 import { HeaderComponent} from './components/header/header.component';
 import { DataService } from './services/data.service';
+import { LoginService } from '../auth/services/login.service';
 import { Page404Component } from './pages/page404/page404.component';
 
 @NgModule({
@@ -19,7 +20,8 @@ import { Page404Component } from './pages/page404/page404.component';
     HeaderComponent
   ],
   providers: [
-    DataService
+    DataService,
+    LoginService
   ],
 })
 export class CoreModule { }
