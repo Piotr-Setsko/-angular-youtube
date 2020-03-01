@@ -19,7 +19,9 @@ export class DetailedInformationComponent implements OnInit {
   public items: SearchItem[] = response.items;
   public item: SearchItem;
 
-  constructor(private activateRoute: ActivatedRoute, private router: Router, private _location: Location, private iconRegistry: MatIconRegistry, private sanitizer: DomSanitizer) {
+  constructor(private activateRoute: ActivatedRoute, private router: Router,
+              private _location: Location, private iconRegistry: MatIconRegistry,
+              private sanitizer: DomSanitizer) {
     this.iconRegistry.addSvgIcon(
       'viewed',
       this.sanitizer.bypassSecurityTrustResourceUrl('../../assets/viewed.svg'));
@@ -36,7 +38,7 @@ export class DetailedInformationComponent implements OnInit {
 
   public ngOnInit(): void {
     this.items.forEach((itemLink: SearchItem) => {
-      if (itemLink.id == this.activateRoute.snapshot.params.id) {
+      if (itemLink.id === this.activateRoute.snapshot.params.id) {
         this.item = itemLink;
       }
     });
