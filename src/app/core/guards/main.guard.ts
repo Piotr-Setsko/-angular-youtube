@@ -11,7 +11,7 @@ export class MainGuard implements CanActivate {
 
   public canActivate (
     next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): boolean {
+    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       if (this.isLoggedIn()) {
         return true;
       }
@@ -22,7 +22,7 @@ export class MainGuard implements CanActivate {
   public isLoggedIn(): boolean {
     let status: boolean;
     status = false;
-    if (localStorage.getItem('user') === 'loggedin') {
+    if (localStorage.getItem('status') === 'loggedin') {
       status = true;
       } else {
       status = false;

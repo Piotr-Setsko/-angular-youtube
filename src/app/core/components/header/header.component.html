@@ -4,7 +4,7 @@
     <form #myForm="ngForm">
       <mat-form-field class="input__wrapper">
         <mat-label></mat-label>
-        <input matInput type="text" name="search" id="search" placeholder="What are you want to find out?" [(ngModel)]="search">
+        <input matInput type="text" name="search" id="search" placeholder="What are you want to find out?" [formControl]="searchText">
       </mat-form-field>
       <button mat-flat-button type="submit" class="input__btn" color="primary" (click)="add(myForm)">search</button>
     </form>
@@ -12,7 +12,8 @@
   </div>
   <div class="header__login-wrapper">
   <div class="header__user-login">
-    <p class="header__user-name">Your Name</p>
+    <p class="header__user-name">{{userName}}</p>
+
     <button mat-flat-button color="primary" class="header__btn header__btn--user"><img src="../../../assets/login.svg" alt="user login"></button>
   </div>
   <div class="header__user-logout" *ngIf='show'>

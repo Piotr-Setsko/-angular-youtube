@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from '../../../auth/services/login.service';
 
@@ -7,7 +7,8 @@ import { response } from '../../../youtube/response';
 import { SearchItem } from '../../../youtube/models/search-item.model';
 
 import { DataService } from '../../services/data.service';
-import { Subscription } from 'rxjs';
+import { Subscription, BehaviorSubject, Observable } from 'rxjs';
+import { debounceTime, map, filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-header',
@@ -20,17 +21,22 @@ export class HeaderComponent implements OnInit {
   public items: SearchItem[] = response.items;
   public search: string;
   public show: boolean;
+  public userName: string;
+  public searchText: FormControl = new FormControl('');
+  public currentSearchState: Observable<string | null>;
 
   constructor(private dataService: DataService, private router: Router, private loginService: LoginService) {
     this.dataService.clickSubmit.subscribe(items => this.items = items);
   }
 
+
+
   public toggleDisplay(): void {
       this.dataService.onClicked();
   }
 
-  public add(myform: NgForm): void {
-    if (myform.value.search !== undefined) {
+  public add(formGroup: NgForm): void {
+    if (formGroup.value.search !== undefined) {
       this.dataService.onClickedResp(this.items);
     }
   }
@@ -42,5 +48,12 @@ export class HeaderComponent implements OnInit {
 
   public ngOnInit(): void {
     this.loginService.currentLoginState.subscribe((data) => { this.show = data; });
+    this.loginService.currentUserName.subscribe((data) => { this.userName = data; });
+    if (localStorage.getItem('status') === 'loggedin' ) {
+      this.show = true;
+      this.userName = 'Hello, ' + localStorage.user;
+    }
+
+      this.searchText.valueChanges.pipe(filter((val:string) => (val.length > 3)), debounceTime(500)).subscribe(data => console.log(data));
   }
 }
