@@ -7,13 +7,17 @@ import { DataService } from './services/data.service';
 import { LoginService } from '../auth/services/login.service';
 import { Page404Component } from './pages/page404/page404.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   imports: [
     RouterModule,
     SharedModule,
-    FormsModule, ReactiveFormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   declarations: [
     HeaderComponent,

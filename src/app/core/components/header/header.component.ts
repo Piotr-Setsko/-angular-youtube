@@ -23,13 +23,11 @@ export class HeaderComponent implements OnInit {
   public show: boolean;
   public userName: string;
   public searchText: FormControl = new FormControl('');
-  public currentSearchState: Observable<string | null>;
+  // public currentSearchState: Observable<string | null>;
 
   constructor(private dataService: DataService, private router: Router, private loginService: LoginService) {
     this.dataService.clickSubmit.subscribe(items => this.items = items);
   }
-
-
 
   public toggleDisplay(): void {
       this.dataService.onClicked();
@@ -54,6 +52,7 @@ export class HeaderComponent implements OnInit {
       this.userName = 'Hello, ' + localStorage.user;
     }
 
-      this.searchText.valueChanges.pipe(filter((val:string) => (val.length > 3)), debounceTime(500)).subscribe(data => console.log(data));
+    this.searchText.valueChanges.pipe(debounceTime(500), filter((val: string) => (val.length > 3)))
+      .subscribe(queryField => { this.dataService.search(queryField); });
   }
 }

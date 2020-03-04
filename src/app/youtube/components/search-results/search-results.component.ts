@@ -12,17 +12,18 @@ import { SortService } from '../../services/sort.service';
 
 export class SearchResultsComponent implements OnInit {
 
-  public items: SearchItem[] = [];
+  public items: SearchItem[];
   public sort: [string, string, boolean] = ['', '', false];
   public wordSort: string = '';
 
   constructor(private dataService: DataService, private sortService: SortService) {
     this.dataService.clickSubmit.subscribe(items => this.items = items);
+
     this.sortService.dateSorting.subscribe(sort => this.sort = sort);
     this.sortService.viewsSorting.subscribe(sort => this.sort = sort);
     this.sortService.wordSorting.subscribe(wordSort => this.wordSort = wordSort);
   }
 
-    public ngOnInit(): void {
+  public ngOnInit(): void {
   }
 }

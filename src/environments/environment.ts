@@ -4,10 +4,14 @@
 
 interface Environment {
   production: boolean;
+  userApi: string;
+  userApi2: string;
 }
 
 export const environment: Environment = {
-  production: false
+  production: false,
+  userApi: 'AIzaSyBE1c7AreiU5DCN-bVJd0-jtJeWyT34FWs',
+  userApi2: 'AIzaSyBBdQAlzFJE_9XRsDYO-TGEyBNxtvX6oWc'
 };
 
 /*

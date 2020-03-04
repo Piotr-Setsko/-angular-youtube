@@ -11,7 +11,8 @@ export class MainGuard implements CanActivate {
 
   public canActivate (
     next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    state: RouterStateSnapshot):
+      Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       if (this.isLoggedIn()) {
         return true;
       }
