@@ -14,7 +14,7 @@ export class DataService {
 
   private show: boolean = false;
   private itemsResp: SearchItem[];
-  private itemsResp2;
+  //private itemsResp2;
   public response: any = {};
   public response2: any = {};
   public data: Array<string> = [];
@@ -24,7 +24,9 @@ export class DataService {
 
   public clickChange: EventEmitter<boolean> = new EventEmitter();
   public clickSubmit: EventEmitter<SearchItem[]> = new EventEmitter();
-  //public itemsResp2: BehaviorSubject<SearchItem[] | null> = new BehaviorSubject([]);
+  
+  public itemsResp2: BehaviorSubject<SearchItem[] | null> = new BehaviorSubject([]);
+  public currentItemResp: Observable<SearchItem[] | null> = this.itemsResp2.asObservable();
 
   constructor(private httpClient: HttpClient) { }
 
@@ -38,7 +40,7 @@ export class DataService {
     this.clickSubmit.emit(this.itemsResp);
   }
 
-  public searchYoutube(queryString): Observable<SearchItem[]> {
+  public searchYoutube(queryString): void {
     let baseUrl: string =
     'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q='
     + queryString + '&type=video&key=' + this.userApi;
@@ -55,7 +57,7 @@ export class DataService {
       //console.log(this.newData);
     },
     consoleError => {
-      console.log(consoleError.status + '! Количество попыток закончилось');
+      console.log(consoleError.status + '! Количество попыток закончилось !');
     });
 
     let resultUrl =
@@ -64,14 +66,14 @@ export class DataService {
     this.httpClient.get(resultUrl)
     .subscribe(value => {
       this.response2 = value;
-      this.itemsResp2 = this.response2.items;
+      //this.itemsResp2.next(this.response2.items);
       //console.log(this.itemsResp2);
     },
     consoleError => {
       console.log(consoleError.status + '! Количество попыток закончилось');
     })
-    this.itemsResp2 = queryString;
-    console.log(queryString);
-    return of(this.itemsResp2);
+    this.itemsResp2.next(queryString);
+    //console.log(queryString);
+    //return of(this.itemsResp2);
   }
 }

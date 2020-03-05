@@ -26,7 +26,7 @@ export class SearchResultsComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    this.dataService.searchYoutube(this.queryString).subscribe(result => this.items = result);
+    this.dataService.currentItemResp.subscribe(result => this.items = result);
     console.log(this.items);
   }
 }
