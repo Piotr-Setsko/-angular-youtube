@@ -53,6 +53,6 @@ export class HeaderComponent implements OnInit {
     }
 
     this.searchText.valueChanges.pipe(debounceTime(500), filter((val: string) => (val.length > 3)))
-      .subscribe(queryField => { this.dataService.search(queryField); });
+      .subscribe(queryField => { this.dataService.searchYoutube(this.items); });
   }
 }

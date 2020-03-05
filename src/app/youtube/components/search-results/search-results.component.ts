@@ -15,6 +15,7 @@ export class SearchResultsComponent implements OnInit {
   public items: SearchItem[];
   public sort: [string, string, boolean] = ['', '', false];
   public wordSort: string = '';
+  public queryString: string = '';
 
   constructor(private dataService: DataService, private sortService: SortService) {
     this.dataService.clickSubmit.subscribe(items => this.items = items);
@@ -25,5 +26,7 @@ export class SearchResultsComponent implements OnInit {
   }
 
   public ngOnInit(): void {
+    this.dataService.searchYoutube(this.queryString).subscribe(result => this.items = result);
+    console.log(this.items);
   }
 }
