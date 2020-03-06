@@ -52,7 +52,7 @@ export class HeaderComponent implements OnInit {
       this.userName = 'Hello, ' + localStorage.user;
     }
 
-    this.searchText.valueChanges.pipe(debounceTime(500), filter((val: string) => (val.length > 3)))
-      .subscribe(queryField => { this.dataService.searchYoutube(this.items); });
+    this.searchText.valueChanges.pipe(debounceTime(300), filter((val: string) => (val.length > 3)))
+      .subscribe(queryField => { this.dataService.searchYoutube(queryField); });
   }
 }

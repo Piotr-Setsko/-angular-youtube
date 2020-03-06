@@ -24,7 +24,7 @@ export class DataService {
 
   public clickChange: EventEmitter<boolean> = new EventEmitter();
   public clickSubmit: EventEmitter<SearchItem[]> = new EventEmitter();
-  
+
   public itemsResp2: BehaviorSubject<SearchItem[] | null> = new BehaviorSubject([]);
   public currentItemResp: Observable<SearchItem[] | null> = this.itemsResp2.asObservable();
 
@@ -54,25 +54,27 @@ export class DataService {
         }
       );
       this.newData = this.data.join('%2C');
-      //console.log(this.newData);
+      console.log(this.newData);
     },
     consoleError => {
       console.log(consoleError.status + '! Количество попыток закончилось !');
     });
 
+
     let resultUrl =
     'https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id='
     + this.newData + '&key=' + this.userApi;
+      //this.newData = '';
+
     this.httpClient.get(resultUrl)
     .subscribe(value => {
       this.response2 = value;
       //this.itemsResp2.next(this.response2.items);
-      //console.log(this.itemsResp2);
     },
     consoleError => {
       console.log(consoleError.status + '! Количество попыток закончилось');
     })
-    this.itemsResp2.next(queryString);
+    this.itemsResp2.next(this.response2.items);
     //console.log(queryString);
     //return of(this.itemsResp2);
   }
