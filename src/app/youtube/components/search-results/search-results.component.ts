@@ -18,7 +18,7 @@ export class SearchResultsComponent implements OnInit {
   public queryString: string = '';
 
   constructor(private dataService: DataService, private sortService: SortService) {
-    this.dataService.clickSubmit.subscribe(items => this.items = items);
+    //this.dataService.clickSubmit.subscribe(items => this.items = items);
 
     this.sortService.dateSorting.subscribe(sort => this.sort = sort);
     this.sortService.viewsSorting.subscribe(sort => this.sort = sort);
@@ -27,6 +27,5 @@ export class SearchResultsComponent implements OnInit {
 
   public ngOnInit(): void {
     this.dataService.currentItemResp.subscribe(result => this.items = result);
-    //console.log(this.items);
   }
 }

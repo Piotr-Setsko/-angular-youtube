@@ -9,7 +9,7 @@ import { Page404Component } from './pages/page404/page404.component';
 
 import { HttpClientModule } from '@angular/common/http';
 
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [

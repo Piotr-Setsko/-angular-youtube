@@ -1,7 +1,7 @@
 <button (click)="goBack()" appBorderColor mat-flat-button class="card__btn" color="primary"><</button>
 <mat-card>
   <img mat-card-image [src]="item.snippet.thumbnails.standard.url" alt="">
-  <mat-card-content appBorderColor>
+  <mat-card-content appBorderColor class="card__wrapper">
     <mat-card-header>
       <mat-card-title>{{item.snippet.title}}</mat-card-title>
       <mat-card-subtitle class="detailed__date">{{item.snippet.publishedAt | date: 'fullDate'}}</mat-card-subtitle>

@@ -7,7 +7,6 @@ import { response } from '../../../youtube/response';
 import { SearchItem } from '../../../youtube/models/search-item.model';
 
 import { DataService } from '../../services/data.service';
-import { Subscription, BehaviorSubject, Observable } from 'rxjs';
 import { debounceTime, map, filter } from 'rxjs/operators';
 
 @Component({
@@ -23,11 +22,9 @@ export class HeaderComponent implements OnInit {
   public show: boolean;
   public userName: string;
   public searchText: FormControl = new FormControl('');
-  // public currentSearchState: Observable<string | null>;
 
-  constructor(private dataService: DataService, private router: Router, private loginService: LoginService) {
-    this.dataService.clickSubmit.subscribe(items => this.items = items);
-  }
+
+  constructor(private dataService: DataService, private router: Router, private loginService: LoginService) {}
 
   public toggleDisplay(): void {
       this.dataService.onClicked();

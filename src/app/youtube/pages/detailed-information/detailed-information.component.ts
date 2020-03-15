@@ -7,6 +7,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { response } from '../../response';
 
 import {  Router, ActivatedRoute} from '@angular/router';
+import { DataService } from '../../../core/services/data.service';
 
 @Component({
   selector: 'app-detailed-information',
@@ -16,12 +17,12 @@ import {  Router, ActivatedRoute} from '@angular/router';
 export class DetailedInformationComponent implements OnInit {
 
   @Input() public id: string;
-  public items: SearchItem[] = response.items;
+  public items: SearchItem[];
   public item: SearchItem;
 
   constructor(private activateRoute: ActivatedRoute, private router: Router,
               private _location: Location, private iconRegistry: MatIconRegistry,
-              private sanitizer: DomSanitizer) {
+              private sanitizer: DomSanitizer, private dataService: DataService) {
     this.iconRegistry.addSvgIcon(
       'viewed',
       this.sanitizer.bypassSecurityTrustResourceUrl('../../assets/viewed.svg'));
@@ -37,6 +38,7 @@ export class DetailedInformationComponent implements OnInit {
   }
 
   public ngOnInit(): void {
+    this.dataService.currentItemResp.subscribe(result => this.items = result);
     this.items.forEach((itemLink: SearchItem) => {
       if (itemLink.id === this.activateRoute.snapshot.params.id) {
         this.item = itemLink;

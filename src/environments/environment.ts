@@ -2,16 +2,10 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-interface Environment {
-  production: boolean;
-  userApi: string;
-  userApi2: string;
-}
-
-export const environment: Environment = {
+export const environment = {
   production: false,
-  userApi: 'AIzaSyBE1c7AreiU5DCN-bVJd0-jtJeWyT34FWs',
-  userApi2: 'AIzaSyBBdQAlzFJE_9XRsDYO-TGEyBNxtvX6oWc'
+  TOKEN: 'AIzaSyBE1c7AreiU5DCN-bVJd0-jtJeWyT34FWs',
+  API_URL: 'https://www.googleapis.com/youtube/v3'
 };
 
 /*

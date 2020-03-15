@@ -8,6 +8,11 @@
   margin-bottom: 50px;
 }
 
+.card__wrapper {
+  width: 40%;
+  white-space: normal;
+}
+
 .mat-flat-button {
   padding: 5px;
   border-top-right-radius: 0;
@@ -25,10 +30,9 @@
 }
 
 .mat-card-image {
-  width: 70%;
+  width: 60%;
   height: auto;
   margin: 0;
-  padding-top: 16px;
   border-bottom-left-radius: 5px;
   align-self: flex-start;
 }
@@ -58,6 +62,7 @@
 .detail__description {
   padding: 0 10px;
   white-space: pre-wrap;
+  word-wrap: break-word
 }
 
 .weekClass {

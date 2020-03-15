@@ -4,23 +4,21 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { Observable, BehaviorSubject, of } from 'rxjs';
 import { error } from 'protractor';
-import {response} from '../../youtube/response';
+import { map } from 'rxjs/operators';
+import { SearchListResponse } from '../../youtube/models/search-list.model';
+import { SearchResponse } from 'src/app/youtube/models/search-response.model';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 
 export class DataService {
 
   private show: boolean = false;
   private itemsResp: SearchItem[];
-  //private itemsResp2;
-  public response: any = {};
-  public response2: any = {};
-  public data: Array<string> = [];
-  newData: string;
+  public newData: string[] = [];
 
-  public userApi: string = environment.userApi2;
+  private readonly userApi: string = environment.TOKEN;
+  private listUrl: string;
+
 
   public clickChange: EventEmitter<boolean> = new EventEmitter();
   public clickSubmit: EventEmitter<SearchItem[]> = new EventEmitter();
@@ -40,42 +38,38 @@ export class DataService {
     this.clickSubmit.emit(this.itemsResp);
   }
 
-  public searchYoutube(queryString): void {
-    let baseUrl: string =
+  public searchYoutube(queryString: string): void {
+    this.listUrl =
     'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q='
     + queryString + '&type=video&key=' + this.userApi;
 
-    // this.httpClient.get(baseUrl).subscribe(value => console.log(value));
-    this.httpClient.get(baseUrl)
-      .subscribe(value => {
-        this.response = value;
-        this.response.items.forEach((element) => {
-          this.data.push(element.id.videoId);
-        }
-      );
-      this.newData = this.data.join('%2C');
-      console.log(this.newData);
-    },
-    consoleError => {
-      console.log(consoleError.status + '! Количество попыток закончилось !');
-    });
+    this.httpClient.get<SearchListResponse>(this.listUrl)
+      .pipe(
+        map(value => {
+          const {items} = value;
+          return items.map(item => item.id.videoId);
+        })
+      ).subscribe(data => {
+        this.newData = data;
+        this.searchYoutubeVideo(this.newData);
+      });
+  }
 
+  public searchYoutubeVideo(newData: string[]): void {
+    let req: string = newData.join(',');
 
-    let resultUrl =
+    this.listUrl =
     'https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id='
-    + this.newData + '&key=' + this.userApi;
-      //this.newData = '';
+    + req + '&key=' + this.userApi;
 
-    this.httpClient.get(resultUrl)
-    .subscribe(value => {
-      this.response2 = value;
-      //this.itemsResp2.next(this.response2.items);
-    },
-    consoleError => {
-      console.log(consoleError.status + '! Количество попыток закончилось');
-    })
-    this.itemsResp2.next(this.response2.items);
-    //console.log(queryString);
-    //return of(this.itemsResp2);
+    this.httpClient.get<SearchResponse>(this.listUrl)
+      .pipe(
+        map(value => {
+          const { items } = value;
+          return items;
+        }))
+        .subscribe(
+          data => this.itemsResp2.next(data)
+        );
   }
 }
