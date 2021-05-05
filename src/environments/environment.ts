@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  TOKEN: 'AIzaSyBE1c7AreiU5DCN-bVJd0-jtJeWyT34FWs',
+  TOKEN: 'AIzaSyBfbYh5gSC7dAdW58WyrD8YCvzlc9RCBb4',
   API_URL: 'https://www.googleapis.com/youtube/v3'
 };
 
